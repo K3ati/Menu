@@ -1,14 +1,17 @@
 package classes.menu;
 
 import javax.faces.bean.ManagedBean;
-import classes.menu.*;
+import classes.menu.Cadastro;
+
 
 
 @ManagedBean
 public class Saque {
 
+	Cadastro cadastro = new Cadastro();
 	public int numAge;
 	public int numConta;
+	public double saldo = cadastro.getSaldo();
 	public int getNumConta() {
 		return numConta;
 	}
@@ -35,7 +38,19 @@ public class Saque {
 
 	public double saque;
 	
-	public 
+	public boolean saque(double pValor){
+		 pValor = getSaque();
+		
+		 if (this.saldo <= pValor) {
+			double novoSaldo = this.saldo - pValor;
+			this.saldo = novoSaldo;
+			return true;
+		}
+		 else if (this.saldo > pValor) {
+			 return false;
+		}
+		return false;
+	}
 	 /*public boolean saque (double pValor){
 	        this.saldo = Lab01Sistema.getSaldo();
 	        pValor = Lab01Sistema.getSaque();
