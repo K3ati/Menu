@@ -1,6 +1,9 @@
 package classes.menu;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
 import classes.menu.Cadastro;
 
 
@@ -47,40 +50,23 @@ public class Saque {
 			return true;
 		}
 		 else if (this.saldo > pValor) {
+			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Saldo Insuficiente!"));
 			 return false;
 		}
 		return false;
 	}
-	 /*public boolean saque (double pValor){
-	        this.saldo = Lab01Sistema.getSaldo();
-	        pValor = Lab01Sistema.getSaque();
-	        
-	        if(this.saldo <= pValor){
-	            double novoSaldo = this.saldo - pValor;
-	            this.saldo = novoSaldo;
-	            return true;
-	        }
-	         else if(this.saldo > pValor){
-	             System.out.println("Saldo insuficiente");
-	             return false;
-	        }
-	        return false;
-	    }
-	   
-	      public void deposito (double pValor){
-	          pValor = Lab01Sistema.getDeposito();
-	          
-	          this.saldo += pValor;
-	      }
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
 	      
 	      
-	      public void imprimir (){ 
-	           System.out.println("Agencia: " + this.numAge);
-	           System.out.println("\nConta: " + this.numConta);
-	           System.out.println("\nNome: " + this.nome);
-	           System.out.println("\nSaldo: " + this.saldo);
-	         
-	      }*/
+	     
 
 }
 
