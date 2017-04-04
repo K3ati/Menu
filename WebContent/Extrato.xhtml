@@ -8,15 +8,19 @@
 	<h:head></h:head>
 	<h:body>
 		<h3>Extrato da Conta:</h3>
-		<p:panelGrid>
+		<p:panelGrid columns="2">
 		<h:outputText value="Número da Agência: " />
 		<h:outputText value="#{cadastro.numAge}" />
+		
 		<h:outputText value="Número da Conta: " />
 		<h:outputText value="#{cadastro.numConta}" />
+		
 		<h:outputText value="Nome do Usuário da Conta: " />
 		<h:outputText value="#{cadastro.nome}" />
+		
 		<h:outputText value="Saldo Atual: " />
 		<h:outputText value="#{saque.saldo}" />
+		
 		</p:panelGrid>
 	</h:body>
 </html>

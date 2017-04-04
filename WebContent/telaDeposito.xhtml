@@ -13,15 +13,15 @@
 	<h:form>
 		<h:panelGrid id="grid" columns="3" cellpadding="5">
         <p:outputLabel for="default" value="Número da Agência:" />
-        <p:inputText id="default" required="true" value="#{saque.numAge}" />
+        <p:inputText id="default" required="true" value="#{deposito.numAge}" />
         <p:message for="default" />
  
  		<p:outputLabel for="icon" value="Número da Conta:" />
-        <p:inputText id="icon" required="true" value="#{saque.numConta}"/>
+        <p:inputText id="icon" required="true" value="#{deposito.numConta}"/>
         <p:message for="icon" display="icon" />	
  		
         <p:outputLabel for="tt" value="Saque:" />
-        <p:inputText id="tt" required="true" value="#{saque.saque}"/>
+        <p:inputText id="tt" required="true" value="#{deposito.deposito}"/>
         <p:message for="tt" display="tooltip" />
         
          

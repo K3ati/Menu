@@ -1,6 +1,16 @@
 package classes.menu;
 
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
 
 
 
@@ -15,10 +25,6 @@ public class Cadastro {
 
 	public void setNumConta(int numConta) {
 		this.numConta = numConta;
-	}
-
-	public int getNumAge() {
-		return numAge;
 	}
 
 	public void setNumAge(int numAge) {
@@ -41,6 +47,38 @@ public class Cadastro {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public void gravar() throws IOException {
+		FileWriter arq = new FileWriter("C:\\Users\\e803823\\Documents\\Menu\\Arquivos\\dados.txt");
+		PrintWriter gravarArq = new PrintWriter(arq);
+		
+		
+		gravarArq.printf("%d", getNumAge());
+	
+		arq.close();
+		
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Mensagem de confirmação:","Gravado com sucesso!"));
+		
+	}
+	
+	
+	public void ler() throws IOException {
+		FileReader arq = new FileReader("C:\\Users\\e803823\\Documents\\Menu\\Arquivos\\dados.txt");
+		BufferedReader lerarq = new BufferedReader(arq);
+		
+		int linha = lerarq.read();
+		
+		while (linha!= 0) {
+			linha = getNumAge();
+			linha = lerarq.read();
+		}
+		
+		arq.close();	
+	}
+	
+	public int getNumAge() {
+		return numAge;
 	}
 	
 }
