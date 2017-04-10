@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+	<h:body>
+		
+		<f:metadata>
+    		<f:event type="preRenderView" listener="#{cadastro.ler}"/>
+		</f:metadata>
+		<p:panel id="basic" header="Extrato da Conta:" footer="Extrato da última operação" style="margin-bottom:6px">
+		<p:panelGrid columns="2">
+		<h:outputText value="Número da Agência: " />
+		<h:outputText  value="#{cadastro.agencia}"/> 
+		
+		<h:outputText value="Número da Conta: " />
+		<h:outputText value="#{cadastro.conta}" />
+		
+		<h:outputText value="Nome do Usuário da Conta: " />
+		<h:outputText value="#{cadastro.anome}" />
+		
+		<h:outputText value="Saldo Atual: " />
+		<h:outputText value="#{cadastro.asaldo}" />
+		
+		
+		</p:panelGrid>
+		</p:panel>
+		<p:button outcome="menuPrincipal.xhtml" value="Voltar" ></p:button>
+	</h:body>
+</html>
